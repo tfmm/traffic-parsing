@@ -1,0 +1,116 @@
+body {
+	background-color: #E0E0E0;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+	text-align: center;
+}
+
+.header {
+	background-color: #313338;
+	color: white;
+	width: 100%;
+}
+.header h1 {
+	color: #F8F8F8;
+	text-align: center;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+	margin: 0.2em;
+}
+.header h2, .header h3 {
+	color: #F8F8F8;
+}
+.whois {
+	text-align: left;
+	margin: 0 auto;
+	width: 50em;
+	background: white;
+	word-wrap: break-word;
+}
+.footer {
+	text-align: center;
+	font-weight:normal;
+        color:black;
+        background: none;
+        width: auto;
+        text-transform: none;
+        margin: 0px;
+        padding: 3px;
+	font-size: 50%;
+}
+#map_canvas {
+                height: 100%;
+                z-index: 0;
+                text-align: center;
+                margin: 0 auto;
+                width: 95%;
+        }
+#map_canvas_sm {
+                height: 50%;
+                z-index: 0;
+                text-align: center;
+                margin: 0 auto;
+                width: 50%;
+        }
+
+.footer a, .footer a:link, .footer a:visited {
+	text-align: center;
+	font-weight:normal;
+        color:black;
+        background: none;
+        width: auto;
+        text-decoration: underline;
+        text-transform: none;
+        margin: 0px;
+        padding: 3px;
+	font-size: 50%;
+}
+h3, h4, h5 {
+	color: black;
+	text-align: center;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+}
+table, th, td {
+	border: 1px solid black;
+	text-align: center;
+	border-collapse: collapse;
+	padding: 3px;
+	width: auto;
+}
+th {
+	background-color: #3366CC;
+	color: #F8F8F8;
+	font-weight: normal;
+}
+tr:nth-child(odd) {
+	background-color: white;
+}
+tr:nth-child(even) {
+	background-color: lightgray;
+}
+td a, td a:link, td a:visited {
+	font-weight:normal;
+	color:black;
+	background: none;
+	width: auto;
+	text-decoration: underline;
+	text-transform: none;
+	margin: 0px;
+	padding: 3px;
+}
+th a, th a:link, th a:visited {
+        font-weight:normal;
+        color:white;
+        background: none;
+        width: auto;
+        text-decoration: underline;
+        text-transform: none;
+        margin: 0px;
+        padding: 3px;
+}
+#col1 {
+    width: 40%;
+    float: left;
+}
+#col2 {
+    width: 60%;
+    float: left;
+}

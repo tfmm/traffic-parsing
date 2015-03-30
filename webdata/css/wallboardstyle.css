@@ -1,0 +1,86 @@
+body {
+	background-color: #282828;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+	text-align: center;
+	color: white;
+}
+
+.header {
+	background-color: #313338;
+	color: white;
+	width: 100%;
+}
+.header h1 {
+	color: #F8F8F8;
+	text-align: center;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+}
+.footer {
+	text-align: center;
+	font-weight:normal;
+        color:black;
+        background: none;
+        width: auto;
+        text-transform: none;
+        margin: 0px;
+        padding: 3px;
+	font-size: 50%;
+}
+#map_canvas {
+                height: 90%;
+                z-index: 0;
+                text-align: center;
+                margin: 0 auto;
+                width: 65%;
+        }
+
+.footer a, .footer a:link, .footer a:visited {
+	text-align: center;
+	font-weight:normal;
+        color:black;
+        background: none;
+        width: auto;
+        text-decoration: underline;
+        text-transform: none;
+        margin: 0px;
+        padding: 3px;
+	font-size: 50%;
+}
+h3, h4, h5 {
+	color: black;
+	text-align: center;
+	font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: inline-block;
+}
+li {
+	display: inline;
+	float: left;
+}
+a:link, a:visited {
+    display: block;
+    font-weight: normal;
+    color: white;
+    background-color: #606060;
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background-color: #989898;
+}
+#col1 {
+    width: 50%;
+    float: left;
+}
+#col2 {
+    width: 50%;
+    float: left;
+}

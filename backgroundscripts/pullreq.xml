@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<peakflow version="2.0">
+<query type="traffic_raw">
+<time start_ascii="10 minutes ago" end_ascii="now"/>
+<search limit="50000" timeout="30"/>
+<filter type="fcap">
+<instance value="(dst net 127.0.0.1/8)"/>
+</filter>
+</query>
+</peakflow>

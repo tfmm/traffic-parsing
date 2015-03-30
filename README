@@ -1,0 +1,7 @@
+This was created with the purpose of parsing raw traffic data from an Arbor Peakflow device on a secondary server.
+
+The "webdata" directory contents should be somewhere publicly accessible via a browser.
+
+The "backgroundscripts" directory contents can be anywhere, and the "backgroundscripts/cronscript.sh" should be set to run at a 10 minute interval via cron.
+
+Obviously, proper API keys and passwords should be substituted in wherever needed in the various files, as well as proper IP addresses.
