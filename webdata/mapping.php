@@ -17,13 +17,13 @@
 		<script type='text/javascript'>
 			//This javascript will load when the page loads.
 			jQuery(document).ready( function($){
-			
+
 			        //Initialize the Google Maps
 			        var geocoder;
 			        var map;
 			        var markersArray = [];
 			        var infos = [];
-			
+
 			        geocoder = new google.maps.Geocoder();
 			        var myOptions = {
 			              zoom: 2,
@@ -33,7 +33,7 @@
 			        //Load the Map into the map_canvas div
 			        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 //			        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-                                var mcOptions = {gridSize: 50, maxZoom: 14};			
+                                var mcOptions = {gridSize: 50, maxZoom: 14};
 			        //Initialize a variable that the auto-size the map to whatever you are plotting
 			        var bounds = new google.maps.LatLngBounds();
 			        //Initialize the encoded string
@@ -44,7 +44,7 @@
 			        encodedString = document.getElementById("encodedString").value;
 			        //Split the encoded string into an array the separates each location
 			        stringArray = encodedString.split("****");
-			
+
 			        var x;
 			        for (x = 0; x < stringArray.length; x = x + 1)
 			        {
@@ -84,13 +84,13 @@
 			          infos.length = 0;
 			       }
 			        }
-			
+
 			});
 		</script>
 	</head>
 	<body>
 		<div class=header>
-                        <h2>LiquidWeb Traffic Monitoring</h2>
+                        <h2>Traffic Monitoring</h2>
                         <h3>Source IP Address Mapping</h3>
 	                <?php include("includes/menu.php"); ?>
 		</div>
@@ -101,10 +101,10 @@
 			<?php
 				//Include DB Connection Info
 				include("includes/db_config.php");
-				
+
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Create dropdown
 				$query = "SELECT port, svc_name FROM commonports ORDER BY port";
 				$tbllist = mysqli_query($conn, $query);
@@ -115,7 +115,7 @@
 				        $name=$row["svc_name"];
 				        $options.="<option value=\"$id\">$id - $name</option>";
 				}
-				
+
 				//Check Connection
 				if ($conn->connect_error) {
 				        die("Connection Failed: " . $conn->connect_error);
@@ -149,23 +149,23 @@
 				}else{
 				        $varPort = 0;
 				}
-				
+
 				//Connect to DB to pull IPs
-				
+
 				// Create connection
 				$conn1 = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Create dropdown
 				$query1 = "SELECT src_ip FROM rawdata WHERE `dst_port` = '".$varPort."' AND time > (UNIX_TIMESTAMP() - 900) GROUP BY src_ip";
 				$iplist = mysqli_query($conn1, $query1);
-				
+
 				echo "Now Viewing data for Destination port: $varPort";
-				
+
 				        //Initialize your first couple variables
 				        $encodedString = ""; //This is the string that will hold all your location data
 				        $x = 0; //This is a trigger to keep the string tidy
-				
-				
+
+
 				        //Multiple rows are returned
 				        while ($row = mysqli_fetch_array($iplist))
 				        {

@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class=header>
-                        <h2>LiquidWeb Traffic Monitoring</h2>
+                        <h2>Traffic Monitoring</h2>
                         <h3>IP WhoIs Lookup</h3>
 	                <?php include("includes/menu.php"); ?>
 		</div>

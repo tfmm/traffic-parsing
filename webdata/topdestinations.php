@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class=header>
-                        <h2>LiquidWeb Traffic Monitoring</h2>
+                        <h2>Traffic Monitoring</h2>
                         <h3>Top Destination IPs</h3>
 	                <?php include("includes/menu.php"); ?>
 		</div>
@@ -24,10 +24,10 @@
 			<?php
 				//Include DB Connection Info
 				include("includes/db_config.php");
-				
+
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Create dropdown
 				$query = "SELECT port, svc_name FROM commonports ORDER BY port";
 				$tbllist = mysqli_query($conn, $query);
@@ -38,7 +38,7 @@
 					$name=$row["svc_name"];
 					$options.="<option value=\"$id\">$id - $name</option>";
 				}
-				
+
 				//Check Connection
 				if ($conn->connect_error) {
 					die("Connection Failed: " . $conn->connect_error);
@@ -69,11 +69,11 @@
 				}
 				// Create connection
 				$conn2 = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Query
-				
+
 				$sql = "SELECT dst_ip, COUNT(DISTINCT(src_ip)), COUNT(dst_ip) FROM `rawdata` WHERE `dst_port` = '".$varPort."' AND time > (UNIX_TIMESTAMP() - 1800) GROUP BY dst_ip ORDER BY COUNT(DISTINCT(src_ip)) DESC LIMIT 50";
-				
+
 				$result = $conn2->query($sql);
 				//If there are results, display them in a table
 				if ($result->num_rows >0) {
@@ -81,7 +81,7 @@
 					echo "<br>";
 					echo "<table align='center'><tr><th>Destination IP</th><th># of sources</th><th># of connections</th><th>Destination Netblock</th><th>Source IPs</th></tr>";
 					while ($row = $result->fetch_assoc()) {
-						echo "<tr><td>".$row["dst_ip"]."</td><td>".$row["COUNT(DISTINCT(src_ip))"]."</td><td>".$row["COUNT(dst_ip)"]."</td><td><a href=https://billing.int.liquidweb.com/mysql/content/admin/netblock/assignment/search.mhtml?customer=".$row["dst_ip"]."&submit=Search target=_blank>Netblock</a></td><td><a href=http://utilities.mon.liquidweb.com/netdata/sourceips.php?formIP=".$row["dst_ip"]."&formPort=$varPort target=_blank>List</a></td></tr>";
+						echo "<tr><td>".$row["dst_ip"]."</td><td>".$row["COUNT(DISTINCT(src_ip))"]."</td><td>".$row["COUNT(dst_ip)"]."</td><td><a href=https://DOMAIN.com/ips/assignment/search.mhtml?customer=".$row["dst_ip"]."&submit=Search target=_blank>Netblock</a></td><td><a href=http://DOMAIN.com/netdata/sourceips.php?formIP=".$row["dst_ip"]."&formPort=$varPort target=_blank>List</a></td></tr>";
 						}
 						echo "</table>";
 				} else {

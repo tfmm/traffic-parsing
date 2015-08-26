@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class=header>
-                        <h2>LiquidWeb Traffic Monitoring</h2>
+                        <h2>Traffic Monitoring</h2>
                         <h3>Inbound Traffic Graphs</h3>
 	                <?php include("includes/menu.php"); ?>
 		</div>
@@ -23,10 +23,10 @@
 			<?php
 				//Include DB connection info
 				include("includes/db_config.php");
-				
+
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Create dropdown
 				$query = "SELECT port, svc_name FROM commonports ORDER BY port";
 				$tbllist = mysqli_query($conn, $query);
@@ -37,7 +37,7 @@
 				        $name=$row["svc_name"];
 				        $options.="<option value=\"$id\">$id - $name</option>";
 				}
-				
+
 				//Check Connection
 				if ($conn->connect_error) {
 				        die("Connection Failed: " . $conn->connect_error);

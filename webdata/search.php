@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class=header>
-                        <h2>LiquidWeb Traffic Monitoring</h2>
+                        <h2>Traffic Monitoring</h2>
                         <h3>Source IP Search</h3>
 	                <?php include("includes/menu.php"); ?>
 		</div>
@@ -16,10 +16,10 @@
 			<?php
 				//Include DB Connection Info
 				include("includes/db_config.php");
-				
+
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Create dropdown
 				$query = "SELECT port, svc_name FROM commonports ORDER BY port";
 				$tbllist = mysqli_query($conn, $query);
@@ -30,7 +30,7 @@
 				        $name=$row["svc_name"];
 				        $options.="<option value=\"$id\">$id - $name</option>";
 				}
-				
+
 				//Check Connection
 				if ($conn->connect_error) {
 				        die("Connection Failed: " . $conn->connect_error);
@@ -65,27 +65,27 @@
 				if(isset($_GET['formIP'])) {
 					$varIP = filter_var(trim($_GET['formIP']), FILTER_VALIDATE_IP);
 				}
-				
+
 				// Create connection
 				$conn2 = new mysqli($servername, $username, $password, $dbname);
-				
+
 				//Check Connection
 				if ($conn2->connect_error) {
 				        die("Connection Failed: " . $conn2->connect_error);
 				}
-				
+
 				//Query
-				
+
 				$sql = "SELECT src_ip, COUNT(DISTINCT(dst_ip)), COUNT(src_ip) FROM `rawdata` WHERE `src_ip` = '".$varIP."' AND `dst_port` = '".$varPort."'";
-				
+
 				$result = $conn2->query($sql);
 				//If there are results, display them in a table
 				if ($result->num_rows >0) {
 				        echo "Now viewing data for IP: $varIP for Destination Port: $varPort";
 				        echo "<table align='center'><tr><th>Source IP</th><th># of targets</th><th># of connections</th><th>Source Whois</th><th>Destination IPs</th></tr>";
-				
+
 				        while ($row = $result->fetch_assoc()) {
-				                echo "<tr><td>".$row["src_ip"]."</a></td><td>".$row["COUNT(DISTINCT(dst_ip))"]."</td><td>".$row["COUNT(src_ip)"]."</td><td><a href=http://utilities.mon.liquidweb.com/netdata/whoislookup.php?formIPaddr=".$row["src_ip"]." target=_blank>Whois</a></td><td><a href=http://utilities.mon.liquidweb.com/netdata/destinationips.php?formIP=".$row["src_ip"]."&formPort=$varPort target=_blank>List</a></td></tr>";
+				                echo "<tr><td>".$row["src_ip"]."</a></td><td>".$row["COUNT(DISTINCT(dst_ip))"]."</td><td>".$row["COUNT(src_ip)"]."</td><td><a href=http://DOMAIN.com/netdata/whoislookup.php?formIPaddr=".$row["src_ip"]." target=_blank>Whois</a></td><td><a href=http://DOMAIN.com/netdata/destinationips.php?formIP=".$row["src_ip"]."&formPort=$varPort target=_blank>List</a></td></tr>";
 				                }
 				                echo "</table>";
 				} else {

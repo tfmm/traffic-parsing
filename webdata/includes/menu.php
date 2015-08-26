@@ -27,7 +27,6 @@
                                                 <li><a href="mapping.php">Traffic Map</a></li>
                                         </ul>
                                 </li>
-                                <li><a href="https://noc.liquidweb.com/blackhole/" target="_blank">NOC Nullrouter</a></li>
                         </ul>
                         </nav>
 	</body>
